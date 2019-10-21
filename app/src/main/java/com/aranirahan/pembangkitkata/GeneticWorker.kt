@@ -12,9 +12,6 @@ import com.google.gson.Gson
 import kotlin.math.abs
 import kotlin.random.Random
 
-/**
- * Run a work to show a notification on a background thread by the {@link WorkManger}.
- */
 class GeneticWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {
 
     private val liveDataHelper by lazy { LiveDataHelper.instance }
