@@ -1,4 +1,4 @@
-package com.aranirahan.pembangkitkata
+package com.aranirahan.pembangkitkata.model
 
 data class Individual(
     var gens: List<Gen?> = listOf(),

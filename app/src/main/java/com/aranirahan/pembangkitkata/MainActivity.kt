@@ -28,6 +28,10 @@ import kotlin.concurrent.thread
 import kotlin.math.abs
 import kotlin.random.Random
 import androidx.lifecycle.Observer
+import com.aranirahan.pembangkitkata.helper.LiveDataHelper
+import com.aranirahan.pembangkitkata.helper.toListCharView
+import com.aranirahan.pembangkitkata.model.Gen
+import com.aranirahan.pembangkitkata.model.Individual
 import kotlinx.android.synthetic.main.activity_main.tv_mt
 
 @SuppressLint("SetTextI18n")

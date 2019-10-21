@@ -4,6 +4,10 @@ import android.content.Context
 import android.util.Log
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import com.aranirahan.pembangkitkata.helper.LiveDataHelper
+import com.aranirahan.pembangkitkata.helper.toListCharView
+import com.aranirahan.pembangkitkata.model.Gen
+import com.aranirahan.pembangkitkata.model.Individual
 import com.google.gson.Gson
 import kotlin.math.abs
 import kotlin.random.Random

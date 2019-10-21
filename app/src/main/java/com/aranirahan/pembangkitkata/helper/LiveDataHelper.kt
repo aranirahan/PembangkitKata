@@ -1,7 +1,8 @@
-package com.aranirahan.pembangkitkata
+package com.aranirahan.pembangkitkata.helper
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import com.aranirahan.pembangkitkata.model.Individual
 
 class LiveDataHelper private constructor() {
     private val _percent = MediatorLiveData<Individual>()
@@ -35,7 +36,8 @@ class LiveDataHelper private constructor() {
         private var liveDataHelper: LiveDataHelper? = null
         val instance: LiveDataHelper
             @Synchronized get() {
-                if (liveDataHelper == null) liveDataHelper = LiveDataHelper()
+                if (liveDataHelper == null) liveDataHelper =
+                    LiveDataHelper()
                 return liveDataHelper as LiveDataHelper
             }
     }

@@ -1,4 +1,4 @@
-package com.aranirahan.pembangkitkata;
+package com.aranirahan.pembangkitkata.model;
 
 public class Gen {
 
