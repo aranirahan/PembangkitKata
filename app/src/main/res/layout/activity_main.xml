@@ -53,6 +53,7 @@
                 android:id="@+id/et_reference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAppearance="@style/Regular"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/bg_border_transparant"
                 android:padding="10dp"
@@ -184,7 +185,7 @@
                 android:id="@+id/tv_worst_individual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/worst_individual_xxxxxxxxxxx_fitness_000"
                 android:visibility="gone" />
 
