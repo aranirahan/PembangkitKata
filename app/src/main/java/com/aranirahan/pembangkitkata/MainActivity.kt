@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -51,6 +52,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        this.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        et_reference.setSelection(et_reference.text.length)
         hideSoftKeyboard()
         setupBtnGenerate()
     }
@@ -66,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         btn_generate.setOnClickListener {
             load.visibility = View.VISIBLE
             v_line.visibility = View.GONE
+            btn_generate.visibility = View.GONE
             runGeneticWork()
             observeWorker()
         }
@@ -146,6 +150,7 @@ class MainActivity : AppCompatActivity() {
         if (lastBest == et_reference.text.toString()) {
             load.visibility = View.GONE
             v_line.visibility = View.VISIBLE
+            btn_generate.visibility = View.VISIBLE
         }
 
         //first populate
