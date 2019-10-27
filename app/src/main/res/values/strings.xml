@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">PembangkitKata</string>
+    <string name="app_name">Word Generator</string>
+    <string name="word_reference">Word reference</string>
+    <string name="mutation_probability_x_10">Mutation Probability (x/10)</string>
+    <string name="crossover_probability_x_10">Crossover Probability (x/10)</string>
+    <string name="generate">Generate word</string>
+    <string name="generation_0">Generation = 0</string>
+    <string name="best_individual_xxxxxxxxxxx_fitness_000">Best Individual xxxxxxxxxxx - fitness = 000</string>
+    <string name="worst_individual_xxxxxxxxxxx_fitness_000">Worst Individual xxxxxxxxxxx - fitness = 000</string>
+    <string name="populate">Populate</string>
+    <string name="xxxxxxxxxxx">xxxxxxxxxxx</string>
+    <string name="_000">000</string>
+    <string name="rws">RWS</string>
+    <string name="cross_over">Cross Over</string>
+    <string name="mutation">Mutation</string>
+    <string name="best_individual">Best Individual</string>
+    <string name="elitisme">Elitisme</string>
+    <string name="fitness_of_word_reference_0">Fitness of word reference = 0</string>
+    <string name="informatika">INFORMATIKA</string>
 </resources>

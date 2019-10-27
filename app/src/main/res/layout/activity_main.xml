@@ -1,86 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:text="@string/app_name"
+        android:textAppearance="@style/SemiBold24" />
+
+    <View
+        android:id="@+id/v_line"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginTop="12dp"
+        android:background="#e0e0e0" />
+
+    <ProgressBar
+        android:id="@+id/load"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        tools:context=".MainActivity">
+        android:indeterminate="true"
+        android:visibility="gone" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="References" />
-
-        <EditText
-            android:id="@+id/et_reference"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="INFORMATIKA"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <Button
-            android:id="@+id/btn_generate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Run" />
-
-        <ProgressBar
-            android:id="@+id/load"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/tv_generation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Generation = X"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_best_individual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" />
-
-        <TextView
-            android:id="@+id/tv_worst_individual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" />
-
-        <TextView
-            android:id="@+id/tv_mt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:padding="16dp"
+            tools:context=".MainActivity">
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/word_reference"
+                android:textAppearance="@style/SemiBold" />
+
+            <EditText
+                android:id="@+id/et_reference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_border_transparant"
+                android:padding="10dp"
+                android:text="@string/informatika"
+                android:textAllCaps="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="Autofill,LabelFor,TextFields" />
+
+
+            <TextView
+                android:id="@+id/tv_fitnes_ref"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/fitness_of_word_reference_0"
+                android:textAppearance="@style/OSItalic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/mutation_probability_x_10"
+                android:textAppearance="@style/SemiBold" />
+
+            <com.mohammedalaa.seekbar.RangeSeekBarView
+                android:id="@+id/pm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="First Populate"
-                android:textSize="20sp"
+                app:barHeight="@dimen/value_bar_barHeight"
+                app:baseColor="@color/navy"
+                app:circleRadius="@dimen/value_bar_circleRadius"
+                app:circleTextColor="@color/white"
+                app:circleTextSize="@dimen/value_bar_circleTextSize"
+                app:currentValue="1"
+                app:fillColor="#9fdfcd"
+                app:maxValue="9"
+                app:minValue="1"
+                app:stepValue="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/crossover_probability_x_10"
+                android:textAppearance="@style/SemiBold" />
+
+            <com.mohammedalaa.seekbar.RangeSeekBarView
+                android:id="@+id/pc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:barHeight="@dimen/value_bar_barHeight"
+                app:baseColor="@color/navy"
+                app:circleRadius="@dimen/value_bar_circleRadius"
+                app:circleTextColor="@color/white"
+                app:circleTextSize="@dimen/value_bar_circleTextSize"
+                app:currentValue="9"
+                app:fillColor="#baabda"
+                app:maxValue="9"
+                app:minValue="1"
+                app:stepValue="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_border_color">
+
+                <TextView
+                    android:id="@+id/btn_generate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/generate"
+                    android:textAppearance="@style/Bold20"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/best_individual"
+                android:textAppearance="@style/SemiBold"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -90,112 +153,211 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tv_first_populate"
+                    android:id="@+id/tv_best_individual"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="100dp"
                     android:layout_marginRight="100dp"
-                    android:text="xxxxxxxxxxx" />
+                    android:text="@string/xxxxxxxxxxx"
+                    android:textAppearance="@style/Regular"
+                    tools:ignore="RtlHardcoded" />
 
                 <TextView
-                    android:id="@+id/tv_count_fitness"
+                    android:id="@+id/tv_best_individualfitness"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="000" />
+                    android:text="@string/_000"
+                    android:textAppearance="@style/Regular" />
 
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_generation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:text="RWS"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_rws"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="100dp"
-                    android:layout_marginRight="100dp"
-                    android:text="xxxxxxxxxxx" />
-
-                <TextView
-                    android:id="@+id/tv_count_fitness_rws"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="000" />
-
-            </LinearLayout>
+                android:text="@string/generation_0"
+                android:textAppearance="@style/Regular20" />
 
             <TextView
+                android:id="@+id/tv_worst_individual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Cross Over"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:text="@string/worst_individual_xxxxxxxxxxx_fitness_000"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_cross_over"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="100dp"
-                    android:layout_marginRight="100dp"
-                    android:text="xxxxxxxxxxx" />
+                    android:layout_marginTop="16dp"
+                    android:text="@string/populate"
+                    android:textAppearance="@style/SemiBold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_first_populate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="100dp"
+                        android:layout_marginRight="100dp"
+                        android:text="@string/xxxxxxxxxxx"
+                        android:textAppearance="@style/Regular"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/tv_count_fitness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_000"
+                        android:textAppearance="@style/Regular" />
+
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tv_count_fitness_cross"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="000" />
+                    android:layout_marginTop="16dp"
+                    android:text="@string/rws"
+                    android:textAppearance="@style/SemiBold" />
 
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Mutation"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/tv_rws"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="100dp"
+                        android:layout_marginRight="100dp"
+                        android:text="@string/xxxxxxxxxxx"
+                        android:textAppearance="@style/Regular"
+                        tools:ignore="RtlHardcoded" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_count_fitness_rws"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_000"
+                        android:textAppearance="@style/Regular" />
+
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tv_mutation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="100dp"
-                    android:layout_marginRight="100dp"
-                    android:text="xxxxxxxxxxx" />
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cross_over"
+                    android:textAppearance="@style/SemiBold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_cross_over"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="100dp"
+                        android:layout_marginRight="100dp"
+                        android:text="@string/xxxxxxxxxxx"
+                        android:textAppearance="@style/Regular"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/tv_count_fitness_cross"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_000"
+                        android:textAppearance="@style/Regular" />
+
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tv_count_fitness_mutation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="000" />
+                    android:layout_marginTop="16dp"
+                    android:text="@string/mutation"
+                    android:textAppearance="@style/SemiBold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_mutation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="100dp"
+                        android:layout_marginRight="100dp"
+                        android:text="@string/xxxxxxxxxxx"
+                        android:textAppearance="@style/Regular"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/tv_count_fitness_mutation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_000"
+                        android:textAppearance="@style/Regular" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/elitisme"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_elitisme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="100dp"
+                        android:layout_marginRight="100dp"
+                        android:text="@string/xxxxxxxxxxx"
+                        android:textAppearance="@style/Regular"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/tv_count_fitness_elitisme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_000"
+                        android:textAppearance="@style/Regular" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>
