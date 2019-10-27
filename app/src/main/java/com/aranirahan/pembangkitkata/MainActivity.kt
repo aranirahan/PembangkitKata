@@ -1,8 +1,10 @@
 package com.aranirahan.pembangkitkata
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.work.Constraints
@@ -37,6 +39,7 @@ import kotlinx.android.synthetic.main.activity_main.v_line
 
 @SuppressLint("SetTextI18n")
 class MainActivity : AppCompatActivity() {
+
     private var firstPopulate = arrayListOf<Individu?>()
     private var rwsList = arrayListOf<Individu?>()
     private var crossOverList = arrayListOf<Individu?>()
@@ -48,7 +51,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        hideSoftKeyboard()
         setupBtnGenerate()
+    }
+
+    private fun hideSoftKeyboard() {
+        if (currentFocus != null) {
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        }
     }
 
     private fun setupBtnGenerate() {
@@ -112,7 +123,6 @@ class MainActivity : AppCompatActivity() {
         vmObserve.observeElitisme().observe(this, Observer {
             elitismeList = Gson().fromJson(it, object : TypeToken<List<Individu>>() {}.type)
         })
-
     }
 
     private fun initView() {
@@ -133,7 +143,7 @@ class MainActivity : AppCompatActivity() {
         tv_best_individualfitness.text = countFitnessTextBestIndividual
 
         //stop loader
-        if(lastBest == et_reference.text.toString()){
+        if (lastBest == et_reference.text.toString()) {
             load.visibility = View.GONE
             v_line.visibility = View.VISIBLE
         }
@@ -202,6 +212,5 @@ class MainActivity : AppCompatActivity() {
             countFitnessTextElitisme += "fitness = " + it?.getFitness().toString() + "\n"
         }
         tv_count_fitness_elitisme.text = countFitnessTextElitisme
-
     }
 }
